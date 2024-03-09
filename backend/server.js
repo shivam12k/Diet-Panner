@@ -49,6 +49,6 @@ app.post("/plan", async (req, res) => {
   }
 });
 const PORT = process.env.PORT || 8080;
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`Server is running at port ${PORT}`);
 });
