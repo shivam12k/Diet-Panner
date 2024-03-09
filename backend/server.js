@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
   res.send("Server Area");
 });
 
-
 const responseExample = [{ monday: { mealName: "", dish: "", calories: 0 } }];
 app.post("/plan", async (req, res) => {
   let dietPlan = req.body.dietPlan; // Extract 'Diet', 'calories', and 'cusion' from req.body
@@ -41,7 +40,6 @@ app.post("/plan", async (req, res) => {
       ],
     });
     const responseText = completion.choices[0];
-   
 
     console.log(responseText);
     res.status(200).json({ response: responseText });
@@ -50,7 +48,7 @@ app.post("/plan", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-app.listen(8080, () => {
-  console.log("Server is running at port 8080");
+const PORT = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`Server is running at port ${PORT}`);
 });
